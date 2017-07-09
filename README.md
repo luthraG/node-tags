@@ -88,10 +88,8 @@ $ npm start -- -t amet,sit
 It would print
 
 ```javascript
-"result": {
-    "sit": 31283,
-    "amet": 31273
-}
+sit     31283
+amet    31273
 ```
 
 #### When user specified multiple tags and all are present
@@ -103,12 +101,10 @@ $ npm start -- -t amet,sit,Lorem,gaurav
 It would print
 
 ```javascript
-"result": {
-    "sit": 31283,
-    "amet": 31273,
-    "Lorem": 30879,
-    "gaurav": 1
-}
+sit         31283
+amet        31273
+Lorem       30879
+gaurav      1
 ```
 
 #### When user specified multiple tags and not all are present
@@ -120,12 +116,10 @@ $ npm start -- -t amet,sit,lorem,gaurav
 It would print
 
 ```javascript
-"result": {
-    "sit": 31283,
-    "amet": 31273,
-    "gaurav": 1,
-    "lorem": 0
-}
+sit         31283
+amet        31273
+gaurav      1
+lorem       0
 ```
 
 #### When user specified two tags and both of those are not present
@@ -137,10 +131,8 @@ $ npm start -- -t AMET,SIT
 It would print
 
 ```javascript
-"result": {
-    "AMET": 0,
-    "SIT": 0
-}
+AMET        0
+SIT         0
 ```
 
 #### When user specified two tags and both of those are present when searched in case insensitive manner
@@ -152,10 +144,8 @@ $ npm start -- -t AMET,SIT -i
 It would print
 
 ```javascript
-"result": {
-    "SIT": 31283,
-    "AMET": 31273
-}
+SIT         31283
+AMET        31273
 ```
 
 #### When user specified did not specify any tag
@@ -167,13 +157,11 @@ $ npm start
 It would print as it uses default tags
 
 ```javascript
-"result": {
-    "sit": 31283,
-    "amet": 31273,
-    "dolor": 31209,
-    "ipsum": 31116,
-    "lorem": 0
-}
+sit         31283
+amet        31273
+dolor       31209
+ipsum       31116
+lorem       0
 ```
 
 #### When user specified did not specify any tag and used -i flag
@@ -185,13 +173,12 @@ $ npm start -- -i
 It would print as it uses default tags but notice the tag lorem with/without -i flag
 
 ```javascript
-"result": {
-    "sit": 31283,
-    "amet": 31273,
-    "dolor": 31209,
-    "ipsum": 31116,
-    "lorem": 30879
-}
+sit         31283
+amet        31273
+dolor       31209
+ipsum       31116
+lorem       30879
+
 ```
 
 #### When user specified spaces between tags and comma after first tag
@@ -203,9 +190,7 @@ $ npm start -- -t sit, amet
 It would print this as it uses only first tag i.e. sit
 
 ```javascript
-"result": {
-    "sit": 31283
-}
+sit     31283
 ```
 
 #### When user specified spaces between tags and no comma between the tags
@@ -217,9 +202,21 @@ $ npm start -- -t sit amet
 It would print this as it uses only first tag i.e. sit
 
 ```javascript
-"result": {
-    "sit amet": 31283
-}
+sit     31283
+```
+
+#### When user specified same tag multiple times and tag is present
+
+It will print it only once as this seems better than duplicating the results
+
+```bash
+$ npm start -- -t amet,amet
+```
+
+It would print
+
+```javascript
+amet        31273
 ```
 
 ## Implementation Notes
@@ -232,6 +229,8 @@ It would print this as it uses only first tag i.e. sit
 6. Only core modules have been used
 7. It is tested with nested object, very large files with millions of tags to measure efficiency of tags
 8. For unit testing, mocha has been used as test runner and chai has been used as assertion library
+9. If user specifies a tag value multiple times(with tag name in same case) then we will print it only once, see example above.
+10. There is extensive logging with different levels. Based on requirement most of statements are in debug mode. To enable those, go to config file and update LOGGER object to set VERBOSE to true
 
 
 ### License(MIT)
