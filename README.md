@@ -37,7 +37,7 @@ $ https://github.com/luthraG/node-tags/issues
 This library has bunch of unit tests for all the methods that are important in findinding the tags.<br />
 We are using mocha as unit test runner and chai as assertion library.<br />
 
-####Tests Execution
+#### Tests Execution
 1. Install dev dependencies from project root directory
 
 ```bash
