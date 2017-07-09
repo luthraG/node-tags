@@ -93,11 +93,20 @@ var LOGGER           = require(__dirname + '/../utils/logger.js'),
 
                             // Add end event listener
                             tagsManager.on('end',   function(data) {
-                                logger.info({
+                                logger.debug({
                                     msg         : 'Driver::Finished tags processing',
                                     result      : UTILS.sortObject(data),       // Return the sorted results
                                     timeTakenMS : (Date.now() - startProcess)
                                 });
+
+                                var result = UTILS.sortObjectToArray(data);
+
+                                // Let us print the result in a format which is expected
+                                if (result && VALIDATION_UTILS.isArray(result)) {
+                                    (result || []).forEach(function(datum) {
+                                        console.log(datum[0] + '\t\t' + datum[1]);
+                                    });
+                                }
 
                                 // Let us exit the process
                                 process.exit(0);
