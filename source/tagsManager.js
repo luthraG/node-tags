@@ -1,7 +1,8 @@
 // System includes
 var EVENTS              = require('events'),
     FS                  = require('fs'),
-    NODE_UTIL           = require('util');
+    NODE_UTIL           = require('util'),
+    PATH                = require('path');
 
 // Local includes
 var CACHE_MANAGER       = require(__dirname + '/../cache/cacheManager.js'),
@@ -199,36 +200,56 @@ TagsManager.prototype._readDirectory                    = function(cb) {
                 if (cb) cb(null);
             } else {
                 (fileNames || []).forEach(function(fileName) {
-                    FS.readFile(self._dataDirectory + fileName, 'utf8', function(err, data) {
+                    // If file has .json extension only then read the file.
+                    // This is as per requirement
+                    if (PATH.extname(fileName) === '.json') {
+                        FS.readFile(self._dataDirectory + fileName, 'utf8', function(err, data) {
+                            // Increment the processed file count
+                            processedFilesCount++;
+                            if (err) {
+                                // If it is directory then log in debug
+                                if (err.code === 'EISDIR') {
+                                    self._log('debug', {
+                                        msg     : 'TagsManager._readDirectory::Trying to read sub directory',
+                                        file    : self._dataDirectory + fileName,
+                                        error   : err
+                                    });
+                                } else {
+                                    self._log('error', {
+                                        msg     : 'TagsManager._readDirectory::Error occured while reading the file in data directory',
+                                        file    : self._dataDirectory + fileName,
+                                        error   : err
+                                    });
+                                }
+                            } else {
+                                // Check if the file is a valid JSON
+                                var jsonData = UTILS.toJSON(data);
+                                if (jsonData) {
+                                    self._populateTags(jsonData, self._tagValues);
+                                } else {
+                                    self._log('error', {
+                                        msg     : 'TagsManager._readDirectory::Invalid JSON file in data directory',
+                                        file    : self._dataDirectory + fileName
+                                    });
+                                }
+                            }
+
+                            if (processedFilesCount === totalFilesCount) {
+                                // Let us populate tags dictionary
+                                self._populateTagsDictionary();
+
+                                // Let us invoke the callback
+                                if (cb) cb(null);
+                            }
+                        });
+                    } else {
                         // Increment the processed file count
                         processedFilesCount++;
-                        if (err) {
-                            // If it is directory then log in debug
-                            if (err.code === 'EISDIR') {
-                                self._log('debug', {
-                                    msg     : 'TagsManager._readDirectory::Trying to read sub directory',
-                                    file    : self._dataDirectory + fileName,
-                                    error   : err
-                                });
-                            } else {
-                                self._log('error', {
-                                    msg     : 'TagsManager._readDirectory::Error occured while reading the file in data directory',
-                                    file    : self._dataDirectory + fileName,
-                                    error   : err
-                                });
-                            }
-                        } else {
-                            // Check if the file is a valid JSON
-                            var jsonData = UTILS.toJSON(data);
-                            if (jsonData) {
-                                self._populateTags(jsonData, self._tagValues);
-                            } else {
-                                self._log('error', {
-                                    msg     : 'TagsManager._readDirectory::Invalid JSON file in data directory',
-                                    file    : self._dataDirectory + fileName
-                                });
-                            }
-                        }
+
+                        self._log('error', {
+                            msg     : 'TagsManager._readDirectory::Invalid file in data directory. Files with extension json are checked',
+                            file    : self._dataDirectory + fileName
+                        });
 
                         if (processedFilesCount === totalFilesCount) {
                             // Let us populate tags dictionary
@@ -237,7 +258,7 @@ TagsManager.prototype._readDirectory                    = function(cb) {
                             // Let us invoke the callback
                             if (cb) cb(null);
                         }
-                    });
+                    }
                 });
             }
         }
