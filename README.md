@@ -75,6 +75,7 @@ Following are various command line switch that are supported:
 |:-------------:|:------------- |:----- |
 | t      | use -t option to specify list of comma separated tags | if no tags are specified then it uses tags present under source/tags.txt |
 | i      | To do a case in-sensitive tags search | it defaults to false i.e. vcase sensitive search |
+| c      | To specify the path of configuration file | it defaults to conf/appConf.js |
 
 
 ## Examples
@@ -231,7 +232,6 @@ amet        31273
 8. For unit testing, mocha has been used as test runner and chai has been used as assertion library
 9. If user specifies a tag value multiple times(with tag name in same case) then we will print it only once, see example above.
 10. There is extensive logging with different levels. Based on requirement most of statements are in debug mode. To enable those, go to config file and update LOGGER object to set VERBOSE to true
-
 
 ### License(MIT)
 
