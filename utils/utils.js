@@ -193,6 +193,23 @@ var Utils = {
         }
 
         return out;
+    },
+
+    /**
+     * Given an object, returns sorted arrays on object values
+     * @param  {[type]} obj : Object to be sorted on values
+     * @return {[type]}     : Returns sorted array on the values
+     */
+    sortObjectToArray   : function(obj) {
+        var sortable = [];
+        if (obj && VALIDATION_UTILS.isStrictObject(obj)) {
+            for (var key in obj)
+                sortable.push([key, obj[key]]);
+
+            sortable.sort(function(a, b) {return b[1] - a[1]});
+        }
+
+        return sortable;
     }
 };
 
