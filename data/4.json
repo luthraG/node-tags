@@ -1,0 +1,308 @@
+[
+  {
+    "_id": "59565ce2868c8a7cf39b62fa",
+    "index": 0,
+    "tags": [
+      "exercitation",
+      "eiusmod",
+      "consectetur",
+      "ullamco",
+      "dolor",
+      "exercitation",
+      "excepteur"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "tags": [
+          "anim",
+          "minim",
+          "aliquip",
+          "nulla",
+          "elit",
+          "enim",
+          "enim"
+        ]
+      },
+      {
+        "id": 1,
+        "tags": [
+          "magna",
+          "est",
+          "nulla",
+          "est",
+          "ea",
+          "labore",
+          "enim"
+        ]
+      },
+      {
+        "id": 2,
+        "tags": [
+          "exercitation",
+          "labore",
+          "laborum",
+          "fugiat",
+          "eiusmod",
+          "sint",
+          "cupidatat"
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "59565ce2d44fba349da5aafe",
+    "index": 1,
+    "tags": [
+      "aute",
+      "dolore",
+      "qui",
+      "non",
+      "pariatur",
+      "tempor",
+      "sit"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "tags": [
+          "deserunt",
+          "est",
+          "ullamco",
+          "aliqua",
+          "eu",
+          "cillum",
+          "sit"
+        ]
+      },
+      {
+        "id": 1,
+        "tags": [
+          "officia",
+          "duis",
+          "eu",
+          "exercitation",
+          "nostrud",
+          "minim",
+          "aliqua"
+        ]
+      },
+      {
+        "id": 2,
+        "tags": [
+          "cillum",
+          "voluptate",
+          "eiusmod",
+          "ad",
+          "enim",
+          "ad",
+          "aliqua"
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "59565ce293c7d232f01af201",
+    "index": 2,
+    "tags": [
+      "ullamco",
+      "et",
+      "non",
+      "laborum",
+      "ex",
+      "mollit",
+      "ullamco"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "tags": [
+          "minim",
+          "magna",
+          "laborum",
+          "nulla",
+          "non",
+          "amet",
+          "adipisicing"
+        ]
+      },
+      {
+        "id": 1,
+        "tags": [
+          "cupidatat",
+          "ullamco",
+          "do",
+          "magna",
+          "elit",
+          "enim",
+          "excepteur"
+        ]
+      },
+      {
+        "id": 2,
+        "tags": [
+          "laboris",
+          "laborum",
+          "est",
+          "nisi",
+          "in",
+          "cupidatat",
+          "id"
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "59565ce2a8523151e3f26195",
+    "index": 3,
+    "tags": [
+      "nostrud",
+      "nulla",
+      "do",
+      "consectetur",
+      "magna",
+      "consequat",
+      "aute"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "tags": [
+          "eu",
+          "Lorem",
+          "excepteur",
+          "ex",
+          "nostrud",
+          "velit",
+          "deserunt"
+        ]
+      },
+      {
+        "id": 1,
+        "tags": [
+          "cupidatat",
+          "deserunt",
+          "nisi",
+          "excepteur",
+          "aliquip",
+          "ex",
+          "sit"
+        ]
+      },
+      {
+        "id": 2,
+        "tags": [
+          "ullamco",
+          "labore",
+          "esse",
+          "aliqua",
+          "aute",
+          "aute",
+          "fugiat"
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "59565ce2852615d80952c40a",
+    "index": 4,
+    "tags": [
+      "sunt",
+      "sint",
+      "anim",
+      "sint",
+      "incididunt",
+      "aliquip",
+      "minim"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "tags": [
+          "et",
+          "voluptate",
+          "aliqua",
+          "incididunt",
+          "ea",
+          "pariatur",
+          "nulla"
+        ]
+      },
+      {
+        "id": 1,
+        "tags": [
+          "aute",
+          "fugiat",
+          "laborum",
+          "adipisicing",
+          "veniam",
+          "aliqua",
+          "cillum"
+        ]
+      },
+      {
+        "id": 2,
+        "tags": [
+          "adipisicing",
+          "labore",
+          "proident",
+          "veniam",
+          "quis",
+          "quis",
+          "elit"
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "59565ce2e4be79a71cb93feb",
+    "index": 5,
+    "tags": [
+      "ut",
+      "ipsum",
+      "reprehenderit",
+      "reprehenderit",
+      "labore",
+      "commodo",
+      "anim"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "tags": [
+          "reprehenderit",
+          "pariatur",
+          "sit",
+          "pariatur",
+          "sit",
+          "ex",
+          "fugiat"
+        ]
+      },
+      {
+        "id": 1,
+        "tags": [
+          "nisi",
+          "culpa",
+          "quis",
+          "commodo",
+          "duis",
+          "tempor",
+          "quis"
+        ]
+      },
+      {
+        "id": 2,
+        "tags": [
+          "proident",
+          "officia",
+          "amet",
+          "eiusmod",
+          "quis",
+          "tempor",
+          "tempor"
+        ]
+      }
+    ]
+  }
+]

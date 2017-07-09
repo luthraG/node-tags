@@ -1,0 +1,25 @@
+{
+    "name": "NodeTags",
+    "version": "1.0.0",
+    "description": "Given a set of tags, it finds the frequency of those tags",
+    "author": {
+        "name": "Gaurav Luthra",
+        "email": "luthra.zenith@gmail.com"
+    },
+    "devDependencies": {
+        "chai": "3.5.0",
+        "mocha": "3.2.0"
+    },
+    "repository": {
+        "type" : "git",
+        "url"  : "https://github.com/luthraG/node-tags.git"
+    },
+    "bugs": {
+        "url"   : "https://github.com/luthraG/node-tags/issues"
+    },
+    "scripts": {
+        "test": "./node_modules/mocha/bin/mocha --max-old-space-size=8912 ./test/unit/*.js",
+        "start": "node --max-old-space-size=8912 source/driver.js"
+    },
+    "license": "MIT"
+}

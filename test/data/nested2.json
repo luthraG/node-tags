@@ -1,0 +1,23 @@
+{
+    "name": "First object",
+    "tags": ["gaurav"],
+    "second" : {
+        "name" : "Second object",
+        "tags" : "luthra",
+        "third" : [
+            {
+                "a" : 1
+            },
+            {
+                "b" : 2,
+                "fourth" : {
+                    "tags" : ["YES"]
+                }
+            },
+            {
+                "c" : 3,
+                "tags" : ["luthra", "luthra"]
+            }
+        ]
+    }
+}
