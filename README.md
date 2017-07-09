@@ -229,6 +229,9 @@ It would print this as it uses only first tag i.e. sit
 3. Only async versions of methods are used as per requirement
 4. Cache is updated if there is any kind of change in data file(s)
 5. Specify --max-old-space-size while running the program if size of data files is more than default heap size of node(based on architecture of your system i.e. 32 bit or 64 bit)
+6. Only core modules have been used
+7. It is tested with nested object, very large files with millions of tags to measure efficiency of tags
+8. For unit testing, mocha has been used as test runner and chai has been used as assertion library
 
 
 ### License(MIT)
