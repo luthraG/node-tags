@@ -307,16 +307,15 @@ TagsManager.prototype._searchTags                       = function(cb) {
                         self._tagsToSearch.length > 0) {
 
                         (self._tagsToSearch || []).forEach(function(searchTag) {
-                            if (searchTag) {
-                                result[searchTag] = result[searchTag] || 0;
+                            searchTag = searchTag ? searchTag : '';
+                            result[searchTag] = result[searchTag] || 0;
 
-                                if (self._isIgnoreCase && (self._tagsDictionary['case_insensitive']) &&
-                                    (searchTag.toUpperCase() in self._tagsDictionary['case_insensitive']))
-                                    result[searchTag] = self._tagsDictionary['case_insensitive'][searchTag.toUpperCase()];
-                                else if (!self._isIgnoreCase && (self._tagsDictionary['case_sensitive']) &&
-                                    (searchTag in self._tagsDictionary['case_sensitive']))
-                                    result[searchTag] = self._tagsDictionary['case_sensitive'][searchTag];
-                            }
+                            if (self._isIgnoreCase && (self._tagsDictionary['case_insensitive']) &&
+                                (searchTag.toUpperCase() in self._tagsDictionary['case_insensitive']))
+                                result[searchTag] = self._tagsDictionary['case_insensitive'][searchTag.toUpperCase()];
+                            else if (!self._isIgnoreCase && (self._tagsDictionary['case_sensitive']) &&
+                                (searchTag in self._tagsDictionary['case_sensitive']))
+                                result[searchTag] = self._tagsDictionary['case_sensitive'][searchTag];
                         });
 
                         // Since cache is just for aid we invoke the callback with results without error

@@ -128,16 +128,15 @@ CacheManager.prototype.searchTags                       = function(tags, ignoreC
 
     if (this._isCacheFresh && VALIDATION_UTILS.isArray(tags) && tags.length > 0) {
         (tags || []).forEach(function(searchTag) {
-            if (searchTag) {
-                result[searchTag] = result[searchTag] || 0;
+            searchTag = searchTag ? searchTag : '';
+            result[searchTag] = result[searchTag] || 0;
 
-                if (!ignoreCase && (self._tagsDictionary['case_sensitive']) &&
-                    (searchTag in self._tagsDictionary['case_sensitive']))
-                    result[searchTag] = self._tagsDictionary['case_sensitive'][searchTag];
-                else if (ignoreCase && (self._tagsDictionary['case_insensitive']) &&
-                    (searchTag.toUpperCase() in self._tagsDictionary['case_insensitive']))
-                    result[searchTag] = self._tagsDictionary['case_insensitive'][searchTag.toUpperCase()];
-            }
+            if (!ignoreCase && (self._tagsDictionary['case_sensitive']) &&
+                (searchTag in self._tagsDictionary['case_sensitive']))
+                result[searchTag] = self._tagsDictionary['case_sensitive'][searchTag];
+            else if (ignoreCase && (self._tagsDictionary['case_insensitive']) &&
+                (searchTag.toUpperCase() in self._tagsDictionary['case_insensitive']))
+                result[searchTag] = self._tagsDictionary['case_insensitive'][searchTag.toUpperCase()];
         });
 
         // Let us invoke the callback
