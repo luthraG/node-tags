@@ -232,6 +232,7 @@ amet        31273
 8. For unit testing, mocha has been used as test runner and chai has been used as assertion library
 9. If user specifies a tag value multiple times(with tag name in same case) then we will print it only once, see example above.
 10. There is extensive logging with different levels. Based on requirement most of statements are in debug mode. To enable those, go to config file and update LOGGER object to set VERBOSE to true
+11. If user wants to specify the platform specific values to be searched e.g. ! or !^ etc. then ensure you escape those correctly otherwise expect something interesting.
 
 ### License(MIT)
 
